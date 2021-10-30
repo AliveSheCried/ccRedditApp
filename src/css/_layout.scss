@@ -1,0 +1,27 @@
+#root {
+  margin: 0 auto;
+  max-width: 120rem;
+  display: grid;
+  grid-template-rows: 4rem min-content;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+}
+
+header {
+  grid-column: 1 / -1;
+  box-shadow: var(--box-shadow-header);
+  padding: var(--spacing-2);
+  width: 100%;
+  border-radius: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+main {
+  grid-column: 1 / 4;
+}
+
+article {
+  margin-top: var(--spacing-4);
+}

@@ -1,0 +1,24 @@
+@mixin icons($fill, $width, $height) {
+  fill: $fill;
+  width: $width;
+  height: $height;
+}
+
+@mixin fbox(
+  $content: flex-start,
+  $items: stretch,
+  $direction: row,
+  $wrap: nowrap
+) {
+  display: flex;
+  justify-content: $content;
+  align-items: $items;
+  flex-direction: $direction;
+  flex-wrap: $wrap;
+}
+
+@mixin button_icons {
+  border: none;
+  background-color: var(--color-white);
+  cursor: pointer;
+}
