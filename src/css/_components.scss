@@ -181,6 +181,12 @@
   margin-top: var(--spacing-4);
   list-style: none;
 
+  &__img {
+    width: 4rem;
+    height: 4rem;
+    border-radius: 100rem;
+  }
+
   &__item--selected {
     background-color: var(--color-grey-light-2);
     border-left: var(--spacing-1) solid var(--color-comment);
@@ -192,11 +198,12 @@
   }
 
   & button {
+    @include fbox($content: flex-end, $items: center);
     background: none;
     border: none;
     cursor: pointer;
     width: 100%;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     font-weight: 700;
     padding: var(--spacing-2);
     color: var(--color-logo);
