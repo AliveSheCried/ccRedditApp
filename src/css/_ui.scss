@@ -1,3 +1,15 @@
+.cardPost {
+  box-shadow: var(--box-shadow);
+  border-radius: 0.5rem;
+  padding: var(--spacing-2);
+  margin: var(--spacing-2);
+  @include fbox();
+
+  &:hover {
+    box-shadow: var(--box-shadow-hover);
+  }
+}
+
 .card {
   box-shadow: var(--box-shadow);
   border-radius: 0.5rem;

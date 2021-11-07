@@ -12,6 +12,7 @@
   --spacing-2: 1rem;
   --spacing-3: 1.5rem;
   --spacing-4: 2rem;
+  --spacing-5: 3rem;
   --box-shadow-header: 0 0.1rem 1rem rgba(0, 0, 0, 0.3);
   --box-shadow: 0 1rem 15px -0.3rem rgba(0, 0, 0, 0.1),
     0 0.4rem 0.6rem -0.2rem rgba(0, 0, 0, 0.05) !important;
@@ -99,6 +100,34 @@ main {
 
 article {
   margin-top: var(--spacing-4);
+}
+
+.cardPost {
+  -webkit-box-shadow: var(--box-shadow);
+          box-shadow: var(--box-shadow);
+  border-radius: 0.5rem;
+  padding: var(--spacing-2);
+  margin: var(--spacing-2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: stretch;
+      -ms-flex-align: stretch;
+          align-items: stretch;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.cardPost:hover {
+  -webkit-box-shadow: var(--box-shadow-hover);
+          box-shadow: var(--box-shadow-hover);
 }
 
 .card {
@@ -219,12 +248,17 @@ article {
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
+  margin-bottom: var(--spacing-5);
+}
+
+.post__content {
+  width: 100%;
 }
 
 .post__votes {
@@ -299,7 +333,7 @@ article {
 }
 
 .post__details > * {
-  font-size: 1rem;
+  font-size: 1.3rem;
   padding-top: var(--spacing-1);
 }
 
@@ -324,8 +358,6 @@ article {
           flex-direction: row;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-  width: 3.2rem;
-  height: 2.3rem;
 }
 
 .post__details-view {
@@ -346,6 +378,8 @@ article {
 
 .post__details-icon {
   display: inline-block;
+  width: 3rem;
+  height: 2rem;
 }
 
 .post__comment {
@@ -454,5 +488,12 @@ article {
 
 .sublist button:hover {
   background-color: var(--color-grey-light-3);
+}
+
+.sublist__text {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-left: var(--spacing-4);
 }
 /*# sourceMappingURL=styles.css.map */

@@ -13,3 +13,19 @@ export const fetchSubReddit = async () => {
     console.log(error);
   }
 };
+
+export const fetchSubRedditPosts = async (url) => {
+  try {
+    const response = await fetch(`https://www.reddit.com${url}.json`);
+
+    if (!response.ok) {
+      throw new Error("Post request failed");
+    }
+
+    const json = await response.json();
+
+    return json.data.children.map((post) => post.data);
+  } catch (error) {
+    console.log(error);
+  }
+};

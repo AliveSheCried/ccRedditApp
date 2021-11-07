@@ -4,6 +4,7 @@ import {
   subRedditSelector,
   getSubRedditData,
 } from "../../features/subReddit-slice";
+import { setSubReddit } from "../../features/posts-slice";
 
 export const Subreddits = () => {
   const dispatch = useDispatch();
@@ -13,8 +14,6 @@ export const Subreddits = () => {
     dispatch(getSubRedditData());
   }, [dispatch]);
 
-  console.log(subReddits);
-
   return (
     <aside>
       <div className="card">
@@ -22,7 +21,10 @@ export const Subreddits = () => {
         <ul className="sublist">
           {subReddits.map((sub) => (
             <li className="sublist__item--unselected" key={sub.id}>
-              <button type="button" style={{ border: `1px solid #000` }}>
+              <button
+                type="button"
+                onClick={() => dispatch(setSubReddit(sub.url))}
+              >
                 <img
                   src={
                     sub.icon_img ||
@@ -31,10 +33,9 @@ export const Subreddits = () => {
                   alt={sub.display_name}
                   className="sublist__img"
                   style={{ border: `4px solid ${sub.primary_color}` }}
+                  url={sub.url}
                 />
-                <span style={{ border: `1px solid #000` }}>
-                  {sub.display_name}
-                </span>
+                <span className="sublist__text">{sub.display_name}</span>
               </button>
             </li>
           ))}

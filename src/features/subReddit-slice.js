@@ -33,7 +33,7 @@ export const { getDataSuccess, getDataStart, getDataError } =
 ///slice/reducer
 export default subRedditSlice;
 
-/////////Thunk to get data
+/////////Thunk to get subReddit data
 export const getSubRedditData = () => async (dispatch) => {
   try {
     dispatch(getDataStart());
