@@ -1,17 +1,31 @@
-import React from "react";
+import React, { useRef } from "react";
+import { useDispatch } from "react-redux";
+import { setSearch } from "../../features/posts-slice";
 
 export const Search = () => {
+  const dispatch = useDispatch();
+  const searchTerm = useRef();
+
+  const handleSearch = (event) => {
+    event.preventDefault();
+
+    const search = searchTerm.current.value;
+    searchTerm.current.value = "";
+    dispatch(setSearch(search));
+  };
+
   return (
     <div className="search">
       <div className="search__form">
-        <form action="#">
+        <form onSubmit={handleSearch}>
           <input
             type="text"
             placeholder="Search"
             className="search__input"
             aria-label="Search posts"
+            ref={searchTerm}
           />
-          <button className="search__button">
+          <button className="search__button" type="submit">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"

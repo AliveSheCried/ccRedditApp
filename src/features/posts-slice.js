@@ -28,6 +28,12 @@ const postSlice = createSlice({
       const url = action.payload.replace(/\/$/, "");
       state.subReddit = url;
     },
+    setSearch(state, action) {
+      state.search = action.payload;
+    },
+    clearSearch(state) {
+      state.search = "";
+    },
   },
 });
 
@@ -38,14 +44,17 @@ export const {
   getPostDataStart,
   getPostDataSuccess,
   setSubReddit,
+  setSearch,
+  clearSearch,
 } = postSlice.actions;
 
 ///Reducers
 export default postSlice;
 
-///Slicea
+///Slices
 export const postSelector = (state) => state.posts.posts;
 export const subRedditSelector = (state) => state.posts.subReddit;
+export const searchSelector = (state) => state.posts.search;
 
 ///Thunk to get posts from selected subReddit
 export const getPostData = (subReddit) => async (dispatch) => {
