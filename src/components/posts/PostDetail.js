@@ -10,6 +10,8 @@ export const PostDetail = ({
   createdDate,
   title,
   image,
+  permaLink,
+  id,
 }) => {
   ////convert utc time to relative date
   const date = convertUTCTimeToRelative(createdDate);
@@ -23,6 +25,7 @@ export const PostDetail = ({
         comments={comments}
         title={title}
         image={image}
+        permaLink={permaLink}
       />
     </div>
   );

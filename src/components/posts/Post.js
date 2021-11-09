@@ -20,6 +20,8 @@ export const Post = () => {
     dispatch(clearSearch());
   }, [dispatch, subReddit]);
 
+  console.log(posts);
+
   const postList = posts
     .filter((post) => post.title.includes(search))
     .map((post) => (
@@ -31,6 +33,8 @@ export const Post = () => {
         comments={post.num_comments}
         image={post.url}
         key={post.id}
+        id={post.id}
+        permaLink={post.permalink}
       />
     ));
 
