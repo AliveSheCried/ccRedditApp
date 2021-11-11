@@ -42,7 +42,7 @@ export const PostMeta = ({ author, date, comments, permaLink }) => {
           {commentsTotal}
         </span>
       </div>
-      {showComments && <PostComments permaLink={permaLink} />}
+      {showComments && <PostComments />}
     </Fragment>
   );
 };

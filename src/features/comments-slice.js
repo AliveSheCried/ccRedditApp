@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-//import { fetchSubRedditPosts } from "../api/fetchData";
+import { fetchPostComments } from "../api/fetchData";
 
 const initialState = {
   comments: [],
@@ -13,7 +13,7 @@ const commentsSlice = createSlice({
   initialState: initialState,
   reducers: {
     getCommentsSuccess(state, action) {
-      state.posts = action.payload;
+      state.comments = action.payload;
       state.isLoading = false;
     },
     getCommentsStart(state) {
@@ -48,3 +48,14 @@ export default commentsSlice;
 //Slices
 export const commentsSelector = (state) => state.comments.comments;
 export const permaLinkSelector = (state) => state.comments.permaLink;
+
+///Thunk to get comment data.
+export const getComments = (permaLink) => async (dispatch) => {
+  try {
+    dispatch(getCommentsStart());
+    const postComments = await fetchPostComments(permaLink);
+    dispatch(getCommentsSuccess(postComments));
+  } catch (error) {
+    dispatch(getCommentsError);
+  }
+};

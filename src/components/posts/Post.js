@@ -20,8 +20,6 @@ export const Post = () => {
     dispatch(clearSearch());
   }, [dispatch, subReddit]);
 
-  console.log(posts);
-
   const postList = posts
     .filter((post) => post.title.includes(search))
     .map((post) => (
