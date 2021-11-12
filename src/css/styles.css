@@ -102,12 +102,22 @@ article {
   margin-top: var(--spacing-4);
 }
 
-.cardPost {
+.card,
+.card__post {
   -webkit-box-shadow: var(--box-shadow);
           box-shadow: var(--box-shadow);
   border-radius: 0.5rem;
   padding: var(--spacing-2);
   margin: var(--spacing-2);
+}
+
+.card:hover,
+.card__post:hover {
+  -webkit-box-shadow: var(--box-shadow-hover);
+          box-shadow: var(--box-shadow-hover);
+}
+
+.card__post {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -123,24 +133,6 @@ article {
           flex-direction: row;
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
-}
-
-.cardPost:hover {
-  -webkit-box-shadow: var(--box-shadow-hover);
-          box-shadow: var(--box-shadow-hover);
-}
-
-.card {
-  -webkit-box-shadow: var(--box-shadow);
-          box-shadow: var(--box-shadow);
-  border-radius: 0.5rem;
-  padding: var(--spacing-2);
-  margin: var(--spacing-2);
-}
-
-.card:hover {
-  -webkit-box-shadow: var(--box-shadow-hover);
-          box-shadow: var(--box-shadow-hover);
 }
 
 .logo {
@@ -207,6 +199,7 @@ article {
   background-color: var(--color-grey-light-2);
   border: none;
   padding: var(--spacing-1) var(--spacing-4);
+  margin-right: var(--spacing-1);
   border-radius: 100px;
   width: 70%;
   -webkit-transition: all 0.2s;
@@ -221,6 +214,7 @@ article {
   border: none;
   background-color: var(--color-white);
   cursor: pointer;
+  vertical-align: middle;
 }
 
 .search__button:active {
@@ -230,8 +224,8 @@ article {
 
 .search__icon {
   fill: var(--color-grey-light);
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 1.8rem;
+  height: 1.8rem;
 }
 
 .search__icon:hover {
@@ -383,13 +377,14 @@ article {
 }
 
 .post__comment {
-  margin-top: var(--spacing-3);
+  margin-top: var(--spacing-4);
   background-color: var(--color-grey-light-3);
   -webkit-transition: -webkit-box-shadow 0.1s ease-in;
   transition: -webkit-box-shadow 0.1s ease-in;
   transition: box-shadow 0.1s ease-in;
   transition: box-shadow 0.1s ease-in, -webkit-box-shadow 0.1s ease-in;
-  padding: var(--spacing-1);
+  padding: var(--spacing-3);
+  border-radius: 10px;
 }
 
 .post__comment:hover {
@@ -417,7 +412,7 @@ article {
 }
 
 .post__comment-auth, .post__comment-created {
-  font-size: 1.9rem;
+  font-size: 1.4rem;
 }
 
 .post__comment-auth {
@@ -427,7 +422,7 @@ article {
 
 .post__comment-text {
   margin-top: var(--spacing-2);
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .sublist {

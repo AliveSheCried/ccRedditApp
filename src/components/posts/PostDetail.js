@@ -17,7 +17,7 @@ export const PostDetail = ({
   const date = convertUTCTimeToRelative(createdDate);
 
   return (
-    <div className="cardPost">
+    <div className="card__post">
       <PostTicks score={score} />
       <PostContent
         author={author}
