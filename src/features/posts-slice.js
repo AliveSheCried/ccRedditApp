@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchSubRedditPosts } from "../api/fetchData";
+import { fetchData } from "../api/fetchData";
 
 const initialState = {
   posts: [],
@@ -60,7 +60,7 @@ export const searchSelector = (state) => state.posts.search;
 export const getPostData = (subReddit) => async (dispatch) => {
   try {
     dispatch(getPostDataStart());
-    const subRedditPosts = await fetchSubRedditPosts(subReddit);
+    const subRedditPosts = await fetchData(subReddit);
     dispatch(getPostDataSuccess(subRedditPosts));
   } catch (error) {
     dispatch(getPostDataError);

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchSubReddit } from "../api/fetchData";
+import { fetchData } from "../api/fetchData";
 
 const initialState = {
   subReddits: [],
@@ -37,7 +37,7 @@ export default subRedditSlice;
 export const getSubRedditData = () => async (dispatch) => {
   try {
     dispatch(getDataStart());
-    const subReddits = await fetchSubReddit();
+    const subReddits = await fetchData("subreddits");
     dispatch(getDataSuccess(subReddits));
   } catch (error) {
     dispatch(getDataError);

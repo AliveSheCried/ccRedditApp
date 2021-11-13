@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchPostComments } from "../api/fetchData";
+import { fetchData } from "../api/fetchData";
 
 const initialState = {
   comments: [],
@@ -53,7 +53,7 @@ export const permaLinkSelector = (state) => state.comments.permaLink;
 export const getComments = (permaLink) => async (dispatch) => {
   try {
     dispatch(getCommentsStart());
-    const postComments = await fetchPostComments(permaLink);
+    const postComments = await fetchData(permaLink);
     dispatch(getCommentsSuccess(postComments));
   } catch (error) {
     dispatch(getCommentsError);
