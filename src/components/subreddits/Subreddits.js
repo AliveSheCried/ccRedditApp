@@ -2,13 +2,16 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   subRedditSelector,
+  subRedditLoadingSelector,
   getSubRedditData,
 } from "../../features/subReddit-slice";
 import { setSubReddit } from "../../features/posts-slice";
+import { IsLoading } from "../ui/IsLoading";
 
 export const Subreddits = () => {
   const dispatch = useDispatch();
   const subReddits = useSelector(subRedditSelector);
+  const isLoading = useSelector(subRedditLoadingSelector);
 
   useEffect(() => {
     dispatch(getSubRedditData());
@@ -18,6 +21,7 @@ export const Subreddits = () => {
     <aside>
       <div className="card">
         <h2>Subreddits</h2>
+        {isLoading && <IsLoading />}
         <ul className="sublist">
           {subReddits.map((sub) => (
             <li className="sublist__item--unselected" key={sub.id}>

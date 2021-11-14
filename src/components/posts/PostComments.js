@@ -3,14 +3,17 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   commentsSelector,
   permaLinkSelector,
+  isLoadingSelector,
   getComments,
 } from "../../features/comments-slice";
 import { PostCommentDetail } from "./PostCommentDetail";
+import { IsLoading } from "../ui/IsLoading";
 
 export const PostComments = () => {
   const dispatch = useDispatch();
   const commentsLink = useSelector(permaLinkSelector);
   const comments = useSelector(commentsSelector);
+  const isLoading = useSelector(isLoadingSelector);
 
   useEffect(() => {
     dispatch(getComments(commentsLink));
@@ -25,5 +28,10 @@ export const PostComments = () => {
     />
   ));
 
-  return <div>{commmentsList}</div>;
+  return (
+    <div>
+      {isLoading && <IsLoading />}
+      {commmentsList}
+    </div>
+  );
 };
