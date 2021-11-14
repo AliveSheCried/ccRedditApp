@@ -283,3 +283,14 @@
     left: 100%;
   }
 }
+
+////////////////////////////////
+/////loading
+.error {
+  margin-top: var(--spacing-5);
+  height: var(--spacing-5);
+  width: 20rem;
+  color: var(--color-comment);
+  font-weight: 700;
+  align-self: center;
+}

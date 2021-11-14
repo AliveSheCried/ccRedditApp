@@ -10,6 +10,7 @@ import {
 } from "../../features/posts-slice";
 import { PostDetail } from "./PostDetail";
 import { IsLoading } from "../ui/IsLoading";
+import { Error } from "../ui/Error";
 
 export const Post = () => {
   const dispatch = useDispatch();
@@ -44,6 +45,7 @@ export const Post = () => {
       <article>
         <div className="post">
           {isLoading && <IsLoading />}
+          {!postList && <Error type="noData" />}
           {postList}
         </div>
       </article>
