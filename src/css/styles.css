@@ -4,6 +4,8 @@
   --color-logo: #ff4500;
   --color-comment: #3d5af1;
   --color-white: #fff;
+  --color-up: green;
+  --color-down: red;
   --color-grey-light: rgb(216, 215, 215);
   --color-grey-light-2: #f4f2f2;
   --color-grey-light-3: #faf9f9;
@@ -274,24 +276,36 @@ article {
       flex-wrap: nowrap;
 }
 
-.post__vote-up, .post__vote-down {
+.post__vote-up, .post__vote-down, .post__vote-upVoted, .post__vote-downVoted {
   border: none;
   background-color: var(--color-white);
   cursor: pointer;
   fill: var(--color-grey-light);
-  width: 1.6rem;
-  height: 1.6rem;
+  width: 1.7rem;
+  height: 1.7em;
 }
 
-.post__vote-up:hover, .post__vote-down:hover {
-  fill: var(--color-text-header);
+.post__vote-up:hover, .post__vote-upVoted {
+  fill: var(--color-up);
 }
 
-.post__vote-count {
+.post__vote-down:hover, .post__vote-downVoted {
+  fill: var(--color-down);
+}
+
+.post__vote-count, .post__vote-countIncreased, .post__vote-countDecreased {
   font-size: 1.2rem;
   font-weight: 700;
   margin-top: var(--spacing-2);
   margin-bottom: var(--spacing-2);
+}
+
+.post__vote-countIncreased {
+  color: var(--color-up);
+}
+
+.post__vote-countDecreased {
+  color: var(--color-down);
 }
 
 .post__img {

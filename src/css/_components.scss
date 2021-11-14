@@ -80,20 +80,38 @@
   }
 
   &__vote-up,
-  &__vote-down {
+  &__vote-down,
+  &__vote-upVoted,
+  &__vote-downVoted {
     @include button_icons;
-    @include icons(var(--color-grey-light), 1.6rem, 1.6rem);
-
-    &:hover {
-      fill: var(--color-text-header);
-    }
+    @include icons(var(--color-grey-light), 1.7rem, 1.7em);
   }
 
-  &__vote-count {
+  &__vote-up:hover,
+  &__vote-upVoted {
+    fill: var(--color-up);
+  }
+
+  &__vote-down:hover,
+  &__vote-downVoted {
+    fill: var(--color-down);
+  }
+
+  &__vote-count,
+  &__vote-countIncreased,
+  &__vote-countDecreased {
     font-size: 1.2rem;
     font-weight: 700;
     margin-top: var(--spacing-2);
     margin-bottom: var(--spacing-2);
+  }
+
+  &__vote-countIncreased {
+    color: var(--color-up);
+  }
+
+  &__vote-countDecreased {
+    color: var(--color-down);
   }
 
   &__img {
