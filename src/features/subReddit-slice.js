@@ -47,3 +47,4 @@ export const getSubRedditData = () => async (dispatch) => {
 ///selector(s)
 export const subRedditSelector = (state) => state.subReddits.subReddits;
 export const subRedditLoadingSelector = (state) => state.subReddits.isLoading;
+export const isErrorSelector = (state) => state.subReddits.isError;

@@ -6,6 +6,7 @@ import {
   subRedditSelector,
   searchSelector,
   isLoadingSelector,
+  isErrorSelector,
   clearSearch,
 } from "../../features/posts-slice";
 import { PostDetail } from "./PostDetail";
@@ -18,6 +19,7 @@ export const Post = () => {
   const subReddit = useSelector(subRedditSelector);
   const search = useSelector(searchSelector);
   const isLoading = useSelector(isLoadingSelector);
+  const isError = useSelector(isErrorSelector);
 
   useEffect(() => {
     dispatch(getPostData(subReddit));
@@ -45,6 +47,7 @@ export const Post = () => {
       <article>
         <div className="post">
           {isLoading && <IsLoading />}
+          {isError && <Error type="error" />}
           {!postList && <Error type="noData" />}
           {postList}
         </div>

@@ -56,6 +56,7 @@ export const postSelector = (state) => state.posts.posts;
 export const subRedditSelector = (state) => state.posts.subReddit;
 export const searchSelector = (state) => state.posts.search;
 export const isLoadingSelector = (state) => state.posts.isLoading;
+export const isErrorSelector = (state) => state.posts.isError;
 
 ///Thunk to get posts from selected subReddit
 export const getPostData = (subReddit) => async (dispatch) => {

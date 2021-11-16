@@ -5,15 +5,18 @@ import {
   permaLinkSelector,
   isLoadingSelector,
   getComments,
+  isErrorSelector,
 } from "../../features/comments-slice";
 import { PostCommentDetail } from "./PostCommentDetail";
 import { IsLoading } from "../ui/IsLoading";
+import { Error } from "../ui/Error";
 
 export const PostComments = () => {
   const dispatch = useDispatch();
   const commentsLink = useSelector(permaLinkSelector);
   const comments = useSelector(commentsSelector);
   const isLoading = useSelector(isLoadingSelector);
+  const isError = useSelector(isErrorSelector);
 
   useEffect(() => {
     dispatch(getComments(commentsLink));
@@ -31,6 +34,7 @@ export const PostComments = () => {
   return (
     <div>
       {isLoading && <IsLoading />}
+      {isError && <Error type="error" />}
       {commmentsList}
     </div>
   );

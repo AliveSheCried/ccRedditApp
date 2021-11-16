@@ -49,6 +49,7 @@ export default commentsSlice;
 export const commentsSelector = (state) => state.comments.comments;
 export const permaLinkSelector = (state) => state.comments.permaLink;
 export const isLoadingSelector = (state) => state.comments.isLoading;
+export const isErrorSelector = (state) => state.comments.isError;
 
 ///Thunk to get comment data.
 export const getComments = (permaLink) => async (dispatch) => {

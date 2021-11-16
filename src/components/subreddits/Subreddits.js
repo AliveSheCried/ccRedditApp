@@ -4,14 +4,17 @@ import {
   subRedditSelector,
   subRedditLoadingSelector,
   getSubRedditData,
+  isErrorSelector,
 } from "../../features/subReddit-slice";
 import { setSubReddit } from "../../features/posts-slice";
 import { IsLoading } from "../ui/IsLoading";
+import { Error } from "../ui/Error";
 
 export const Subreddits = () => {
   const dispatch = useDispatch();
   const subReddits = useSelector(subRedditSelector);
   const isLoading = useSelector(subRedditLoadingSelector);
+  const isError = useSelector(isErrorSelector);
 
   useEffect(() => {
     dispatch(getSubRedditData());
@@ -22,6 +25,7 @@ export const Subreddits = () => {
       <div className="card">
         <h2>Subreddits</h2>
         {isLoading && <IsLoading />}
+        {isError && <Error type="error" />}
         <ul className="sublist">
           {subReddits.map((sub) => (
             <li className="sublist__item--unselected" key={sub.id}>
