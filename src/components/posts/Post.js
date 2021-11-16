@@ -43,15 +43,13 @@ export const Post = () => {
     ));
 
   return (
-    <main>
-      <article>
-        <div className="post">
-          {isLoading && <IsLoading />}
-          {isError && <Error type="error" />}
-          {!postList && <Error type="noData" />}
-          {postList}
-        </div>
-      </article>
-    </main>
+    <article>
+      <div className="post">
+        {isLoading && <IsLoading />}
+        {isError && <Error type="error" />}
+        {!postList && <Error type="noData" />}
+        {postList}
+      </div>
+    </article>
   );
 };

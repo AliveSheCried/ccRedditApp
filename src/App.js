@@ -7,8 +7,10 @@ function App() {
   return (
     <Fragment>
       <Header />
-      <Post />
-      <Subreddits />
+      <main>
+        <Post />
+        <Subreddits />
+      </main>
     </Fragment>
   );
 }

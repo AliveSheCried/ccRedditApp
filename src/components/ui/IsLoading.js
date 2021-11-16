@@ -1,5 +1,5 @@
 import React from "react";
 
 export const IsLoading = () => {
-  return <div class="placeholder-item"></div>;
+  return <div className="placeholder-item"></div>;
 };
