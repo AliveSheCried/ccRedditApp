@@ -14,7 +14,10 @@ Reddit Client from Codecademy.com's front end engineer course. Aim of the projec
 
 # Features
 
-1. TBC
+1. Load posts
+2. Load post comments
+3. Load subReddits
+4. Search posts
 
 # Future work
 
