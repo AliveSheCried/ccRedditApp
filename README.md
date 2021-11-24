@@ -21,4 +21,7 @@ Reddit Client from Codecademy.com's front end engineer course. Aim of the projec
 
 # Future work
 
-TBC
+1. Split out CSS to component level
+2. Merge comment and post slice so that comments are part of a particular post
+3. Use card component instead of css class
+4. Dark mode
