@@ -1,15 +1,12 @@
 import React, { useState } from "react";
+import { svgDownTick, svgUpTick } from "../../lib/svg";
+import shortenNumber from "../../lib/shortenNumber";
 
 export const PostTicks = ({ score }) => {
   const [upVote, setUpVote] = useState(null);
   const [downVote, setDownVote] = useState(null);
 
-  let scoreTotal;
-  if (score / 1000 > 1) {
-    scoreTotal = `${(score / 1000).toFixed(1)}k`;
-  } else {
-    scoreTotal = score;
-  }
+  let scoreTotal = shortenNumber(score, 1);
 
   const handleVoteUp = () => {
     setUpVote(true);
@@ -29,13 +26,7 @@ export const PostTicks = ({ score }) => {
         aria-label="Up vote"
         onClick={handleVoteUp}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          className="post__icon"
-        >
-          <path d="M0 16.67l2.829 2.83 9.175-9.339 9.167 9.339 2.829-2.83-11.996-12.17z" />
-        </svg>
+        {svgUpTick}
       </button>
       <p
         className={
@@ -54,13 +45,7 @@ export const PostTicks = ({ score }) => {
         aria-label="Down vote"
         onClick={handleVoteDown}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          className="post__icon"
-        >
-          <path d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z" />
-        </svg>
+        {svgDownTick}
       </button>
     </div>
   );

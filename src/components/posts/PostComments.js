@@ -8,7 +8,7 @@ import {
   isErrorSelector,
 } from "../../features/comments-slice";
 import { PostCommentDetail } from "./PostCommentDetail";
-import { IsLoading } from "../ui/IsLoading";
+import { SkeletonComments } from "../ui/SkeletonComments";
 import { Error } from "../ui/Error";
 
 export const PostComments = () => {
@@ -22,7 +22,7 @@ export const PostComments = () => {
     dispatch(getComments(commentsLink));
   }, [dispatch, commentsLink]);
 
-  const commmentsList = comments.map((comment) => (
+  const commentsList = comments.map((comment) => (
     <PostCommentDetail
       key={comment.id}
       created={comment.created_utc}
@@ -31,11 +31,14 @@ export const PostComments = () => {
     />
   ));
 
+  //console.log(comments);
+  // console.log(commentsList);
+
   return (
     <div>
-      {isLoading && <IsLoading />}
+      {isLoading && <SkeletonComments />}
       {isError && <Error type="error" />}
-      {commmentsList}
+      {commentsList}
     </div>
   );
 };

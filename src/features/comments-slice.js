@@ -13,6 +13,7 @@ const commentsSlice = createSlice({
   initialState: initialState,
   reducers: {
     getCommentsSuccess(state, action) {
+      action.payload.pop();
       state.comments = action.payload;
       state.isLoading = false;
     },
@@ -27,6 +28,9 @@ const commentsSlice = createSlice({
       const url = action.payload.replace(/\/$/, "");
       state.permaLink = url;
     },
+    resetComments(state) {
+      state.comments = [];
+    },
     //   clearSearch(state) {
     //     state.search = "";
     //   },
@@ -40,6 +44,7 @@ export const {
   getCommentsStart,
   getCommentsError,
   setPermaLink,
+  resetComments,
 } = commentsSlice.actions;
 
 ///Reducer

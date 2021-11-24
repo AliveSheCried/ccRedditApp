@@ -1,13 +1,18 @@
 import React from "react";
-import { convertUTCTimeToRelative } from "../../lib/convert-time";
+import { fromUnixTime, formatRelative } from "date-fns";
 
 export const PostCommentDetail = ({ author, created, body }) => {
-  const timeDate = convertUTCTimeToRelative(created);
+  const timeDate = formatRelative(
+    fromUnixTime(created),
+    new Date()
+  ).toLocaleString();
+
+  //console.log(author, created);
   return (
     <div className="post__comment">
       <div className="post__comment-meta">
         <p className="post__comment-auth">{author}</p>
-        <p className="post__comment-created">{timeDate} ago</p>
+        <p className="post__comment-created">{timeDate}</p>
       </div>
       <p className="post__comment-text">{body}</p>
     </div>

@@ -7,7 +7,7 @@ import {
   isErrorSelector,
 } from "../../features/subReddit-slice";
 import { setSubReddit } from "../../features/posts-slice";
-import { IsLoading } from "../ui/IsLoading";
+import { SkeletonSubReddit } from "../ui/SkeletonSubReddit";
 import { Error } from "../ui/Error";
 
 export const Subreddits = () => {
@@ -24,7 +24,7 @@ export const Subreddits = () => {
     <aside>
       <div className="card">
         <h2>Subreddits</h2>
-        {isLoading && <IsLoading />}
+        {isLoading && <SkeletonSubReddit />}
         {isError && <Error type="error" />}
         <ul className="sublist">
           {subReddits.map((sub) => (

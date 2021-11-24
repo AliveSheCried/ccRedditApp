@@ -1,17 +1,17 @@
 import React, { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
-  postSelector,
-  getPostData,
-  subRedditSelector,
-  searchSelector,
-  isLoadingSelector,
-  isErrorSelector,
   clearSearch,
+  getPostData,
+  isErrorSelector,
+  isLoadingSelector,
+  postSelector,
+  searchSelector,
+  subRedditSelector,
 } from "../../features/posts-slice";
-import { PostDetail } from "./PostDetail";
-import { IsLoading } from "../ui/IsLoading";
 import { Error } from "../ui/Error";
+import { SkeletonPost } from "../ui/SkeletonPost";
+import { PostDetail } from "./PostDetail";
 
 export const Post = () => {
   const dispatch = useDispatch();
@@ -27,7 +27,7 @@ export const Post = () => {
   }, [dispatch, subReddit]);
 
   const postList = posts
-    .filter((post) => post.title.includes(search))
+    .filter((post) => post.title.toLowerCase().includes(search))
     .map((post) => (
       <PostDetail
         author={post.author}
@@ -45,7 +45,7 @@ export const Post = () => {
   return (
     <article>
       <div className="post">
-        {isLoading && <IsLoading />}
+        {isLoading && <SkeletonPost />}
         {isError && <Error type="error" />}
         {!postList && <Error type="noData" />}
         {postList}

@@ -9,7 +9,7 @@ Reddit Client from Codecademy.com's front end engineer course. Aim of the projec
 - **css & scss**
 - **javascript**
 - **react**
-- **react-router-dom**
+- **react-loading-skeleton**
 - **redux toolkit**
 
 # Features
